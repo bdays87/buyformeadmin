@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "buyforme";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f3f7fa;
+  --color-base-300: #dce7ee;
+  --color-base-content: #102a43;
+  --color-primary: #087e8b;
+  --color-primary-content: #ffffff;
+  --color-secondary: #f4b942;
+  --color-secondary-content: #102a43;
+  --color-accent: #ef6f6c;
+  --color-accent-content: #ffffff;
+  --color-neutral: #16324f;
+  --color-neutral-content: #f3f7fa;
+  --color-info: #4e8fb4;
+  --color-info-content: #ffffff;
+  --color-success: #2e8b72;
+  --color-success-content: #ffffff;
+  --color-warning: #f4b942;
+  --color-warning-content: #102a43;
+  --color-error: #c94c4c;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --font-sans: "Manrope", "Segoe UI", sans-serif;
+  --font-display: "DM Serif Display", Georgia, serif;
+}
+
+html {
+  background: var(--color-base-200);
+}
+
+body {
+  min-width: 320px;
+  font-family: var(--font-sans);
+}
+
+.route-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-base-300) 52%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-base-300) 52%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.login-route {
+  stroke-dasharray: 10 8;
+  animation: route-dash 12s linear infinite;
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 48rem) {
+  .stage-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@keyframes route-dash {
+  to { stroke-dashoffset: -180; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-route { animation: none; }
+}
